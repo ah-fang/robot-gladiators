@@ -19,6 +19,12 @@ var startGame = function() {
             var pickedEnemyName =  enemyNames[i];
             enemyHealth = 50;
             fight(pickedEnemyName);
+            if (playerHealth > 0 && i < enemyNames.length - 1) {
+                var storeConfirm = window.confirm("The fight is over, visit the store before the next round?");
+                if (storeConfirm) {
+                    shop();
+                }
+              }
         }
         //if player isn't alive, stop the game
         else {
@@ -44,7 +50,51 @@ var endGame = function() {
     else {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
         }
-  };
+};
+
+var shop = function() {
+    var shopOptionPrompt = window.prompt(
+        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+        );
+    // use switch to carry out action
+switch (shopOptionPrompt) {
+    case "REFILL": 
+    case "refill":
+      if(playerMoney >= 7) {
+        window.alert("Refilling player's health by 20 for 7 dollars.");
+        playerHealth = playerHealth + 20;
+        playerMoney = playerMoney - 7;
+      }
+
+
+      break;
+      
+    case "UPGRADE":
+    case "upgrade":
+      if (playerMoney >= 7) {
+        window.alert("Upgrading player's attack by 6 for 7 dollars.");
+        playerAttack = playerAttack + 6;
+        playerMoney = playerMoney - 7;
+      }
+      else {
+        window.alert("You don't have enough money!"); 
+    }
+    break;
+    
+    case "LEAVE":
+    case "leave":
+      window.alert("Leaving the store.");
+  
+      // do nothing, so function will end
+      break;
+    default:
+      window.alert("You did not pick a valid option. Try again.");
+  
+      // call shop() again to force player to pick a valid option
+      shop();
+      break;
+  }
+};  
 
 var fight = function(enemyName) {
     while(playerHealth > 0 && enemyHealth > 0) {
@@ -98,7 +148,7 @@ var fight = function(enemyName) {
         window.alert(playerName + ' still has ' + playerHealth + ' health left.');
         }            
     }
-} 
+};
 
 startGame();
 console.log(enemyNames);
