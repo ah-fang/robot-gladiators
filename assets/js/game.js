@@ -1,3 +1,8 @@
+var randomNumber = function(min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);  
+    return value;
+};
+
 var playerInfo = {
     name: window.prompt("What is your robot's name?"),
     health: 100,
@@ -30,11 +35,6 @@ var playerInfo = {
     }
 };
 
-var randomNumber = function(min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min);  
-    return value;
-};
-
 var enemyInfo = [
     {
       name: "Roborto",
@@ -49,12 +49,8 @@ var enemyInfo = [
       attack: randomNumber(10, 14)
     }
   ];
-// var enemy.names = ["Roborto", "Amy Android", "Robo Trumble"];
-var enemy.health = 50;
-// var enemy.attack = 12;
 
 var startGame = function() {
-    debugger;
     playerInfo.reset();
     for(var i = 0; i < enemyInfo.length; i++) {
         //if player is still alive, keep fighting
