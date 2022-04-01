@@ -49,9 +49,8 @@ var enemyInfo = [
       attack: randomNumber(10, 14)
     }
   ];
-// var enemy.names = ["Roborto", "Amy Android", "Robo Trumble"];
-var enemy.health = 50;
-// var enemy.attack = 12;
+
+  // var enemy.health = 50;
 
 var startGame = function() {
     debugger;
