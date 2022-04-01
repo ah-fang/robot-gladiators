@@ -1,5 +1,13 @@
+function getPlayerName() {
+    var name = "";
+    while(name==="" || name===null) {
+        name: window.prompt("What is your robot's name?");
+    }
+    console.log("Your robot's name is " + name);
+    return name;
+}
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
@@ -53,7 +61,6 @@ var enemyInfo = [
   // var enemy.health = 50;
 
 var startGame = function() {
-    debugger;
     playerInfo.reset();
     for(var i = 0; i < enemyInfo.length; i++) {
         //if player is still alive, keep fighting
