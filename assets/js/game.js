@@ -1,10 +1,8 @@
-<<<<<<< HEAD
 var randomNumber = function(min, max) {
     var value = Math.floor(Math.random() * (max - min + 1) + min);  
     return value;
 };
 
-=======
 function getPlayerName() {
     var name = "";
     while(name==="" || name===null) {
@@ -13,7 +11,6 @@ function getPlayerName() {
     console.log("Your robot's name is " + name);
     return name;
 }
->>>>>>> develop
 var playerInfo = {
     name: getPlayerName(),
     health: 100,
@@ -60,11 +57,6 @@ var enemyInfo = [
       attack: randomNumber(10, 14)
     }
   ];
-<<<<<<< HEAD
-=======
-
-  // var enemy.health = 50;
->>>>>>> develop
 
 var startGame = function() {
     playerInfo.reset();
@@ -114,18 +106,15 @@ var shop = function() {
         );
     // use switch to carry out action
 switch (shopOptionPrompt) {
-    case "REFILL": 
-    case "refill":
+    case 1:
         playerInfo.refillHealth();
       break;
       
-    case "UPGRADE":
-    case "upgrade":
+    case 2:
         playerInfo.upgradeAttack();
     break;
     
-    case "LEAVE":
-    case "leave":
+    case 3:
       window.alert("Leaving the store.");
   
       // do nothing, so function will end
